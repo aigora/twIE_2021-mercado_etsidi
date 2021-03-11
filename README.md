@@ -5,6 +5,7 @@ Vamos a realizar la página web de un mercado.  Mostraremos las diferente seccio
 
 [Nombres, apellidos, y usuario GitHub de los integrantes del equipo].
 Diego, Martín González, diegomg99.
+Hector, Gutierrez Vazquez,  hectorgutierrezv
 
 ## Objetivos del trabajo
 
