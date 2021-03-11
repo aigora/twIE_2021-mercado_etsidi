@@ -7,6 +7,7 @@ Vamos a realizar la página web de un mercado.  Mostraremos las diferente seccio
 Diego, Martín González, diegomg99.
 
 Hector, Gutierrez Vazquez,  hectorgutierrezv
+Inés, Meléndez del Pozo, InesMelendez
 
 ## Objetivos del trabajo
 
