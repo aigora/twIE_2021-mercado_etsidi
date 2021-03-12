@@ -8,6 +8,7 @@ Diego, Martín González, diegomg99.
 
 Hector, Gutierrez Vazquez,  hectorgutierrezv
 Inés, Meléndez del Pozo, InesMelendez
+Jose Enrique, Espinoza garcia, joseenriqueespinoza99.
 
 ## Objetivos del trabajo
 
