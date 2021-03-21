@@ -1,4 +1,4 @@
-## Mercado ETSIDI
+# Mercado ETSIDI
 Vamos a realizar la página web de un mercado.  Mostraremos las diferente secciones(charcutería,pescadería, panadería,...), y  dentro de cada sección  el nombre de los puestos y los productos que ofrece cada uno, pudiendo realizar sus compras de forma online con la opción de servivio a domicilio.
 
 ## Integrantes del  equipo
