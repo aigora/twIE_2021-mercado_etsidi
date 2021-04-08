@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main()
+{
+  char elige;
+  printf("Bienvenido a Mercado etsidi: \n\nComo desea comprar? \nEliga entre:\n  Opcion (A): Visitar pagina web. \n  Opcion (B): Llamada a domicilio.\n");
+  scanf("%c", &elige);
+  
+  switch(elige)
+    {
+    case 'A':
+    case 'a':
+       system("cls");
+       printf("Visitar pagina web\n");
+      
+      
+      
+      
+      
+      
+      break;
+    case 'B':
+    case 'b':
+    	system("cls");
+        printf("Llamada a domicilio\n");
+      break;
+ 
+    default:
+      printf("Vuelva a introducir una opcion\n");
+    }
+  return 0;
+  }
+  
