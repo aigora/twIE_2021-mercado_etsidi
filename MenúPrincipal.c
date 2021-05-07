@@ -16,8 +16,7 @@ int main()
         printf ("1.- Charcuteria.\n\n");
         printf ("2.- Pescaderia.\n\n");
         printf ("3.- Panaderia.\n\n");
-        printf ("4.- Herbolario.\n\n");
-        printf ("5.- Fruteria.\n\n");
+        printf ("4.- Fruteria.\n\n");
       break;
     case 'B':
     case 'b':
@@ -27,8 +26,7 @@ int main()
         printf ("1.- Charcuteria.\n\n");
         printf ("2.- Pescaderia.\n\n");
         printf ("3.- Panaderia.\n\n");
-        printf ("4.- Herbolario.\n\n");
-        printf ("5.- Fruteria.\n\n");
+        printf ("4.- Fruteria.\n\n");
       break;
 
     default:
