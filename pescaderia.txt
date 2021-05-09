@@ -1,0 +1,13 @@
+01; Lubina de 600g; 6.75
+02; Pescadilla de 1.25kg; 17.30
+03; Pulpo de 2.5kg; 82.00
+04; Almejas (Bolsa de 1.20 kg); 29.50
+05; Boquerones (Bolsa de 1.50 kg); 14.75
+06; Lomo de Atun de 800g; 42.49
+07; Caja de langostinos de 1.00kg; 62.00
+08; Salmon de 3kg; 48.00
+09; Dorada 1.20 kg; 24.75
+10; Lenguado de 400g; 13.55
+11; 1kg de lomos de bacalao; 14.90
+12; Rape entero 1.70kg; 19.55
+   

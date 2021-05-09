@@ -1,0 +1,12 @@
+01; Empanadilla Atun; 1.65
+02; Bolsa 250g de palmeras de chocolate; 6.50
+03; Pan de molde 700g; 2.30
+04; Muffin de chocolate; 1.35
+05; Barra de pan rustica; 1.20
+06; Barra de pan integral; 1.20
+07; Panecillos; 0.45
+08; Bolsa de 500g de magdalenas; 3.25
+09; Caja de bombones chocolate 500g; 8.75
+10; Napolitana Jamon y queso; 1.00
+11; Donut Azucar; 0.90
+12; Bizcocho Artesano; 4.50

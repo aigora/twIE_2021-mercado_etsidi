@@ -1,0 +1,12 @@
+01; 200g de Jamon York; 1.98
+02; 200g de chorizo; 3.54
+03; 200g de salchichon; 3.40
+04; 250g de queso curado; 6.80
+05; 250g de queso fresco; 2.25
+06; 250g de rulo de cabra; 5.55
+07; 100g de lomo embuchado; 2.19
+08; 200g de bacon ahumado; 2.60
+09; 100g de jamon de bellota; 14.50
+10; 100g de jamon de cebo; 8.50
+11; 200g de pechuga de pavo; 1.98
+12; 100g de ensaladilla rusa; 1.29
