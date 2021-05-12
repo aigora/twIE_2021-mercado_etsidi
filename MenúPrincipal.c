@@ -156,7 +156,7 @@ void menu_principal()
   pf = fopen("letrero.txt", "r");
   while (fscanf(pf, "%c", &p) != EOF)
   printf ("%c",p);
-  printf("Bienvenido a Mercado etsidi: \n\nComo desea comprar? \n\nEliga entre:\n\nOpcion (A): Visitar pagina web. \n\nOpcion (B): Llamada a domicilio.\n\n");
+  printf("\nBienvenido a Mercado etsidi: \n\nComo desea comprar? \n\nEliga entre:\n\nOpcion (A): Visitar pagina web. \n\nOpcion (B): Llamada a domicilio.\n\n");
 }
 
 
