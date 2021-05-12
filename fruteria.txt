@@ -1,13 +1,12 @@
-01; Bolsa de 1kg de Naranjas; 0.97
-02; Racimo de 1kg de platanos; 1.71
-03; Bolsa de 1kg de Manzana Golden; 0.95
-04; Bolsa de 1kg de Peras; 1.56
-05; Bolsa de 1kg Tomates Raf; 2.99
-06; Bolsa de 1kg Berenjenas; 0.87
-07; Bolsa de 1kg Aguacate; 6.76
-08; Caja de 1kg de Cerezas; 4.49
-09; Bolsa de 1kg de Granada; 1.97
-10; Bolsa de 1kg Kiwis; 2.17
-11; Racimo de 1kg de Uvas; 2.60
-12; Bolsa de 1kg Kakis; 2.30 
-
+Bolsa_de_Naranjas   1000 0.97
+Racimo_de_platanos   1000 1.71
+Bolsa_de_Manzanas    1000 0.95
+Bolsa_de_Peras   1000 1.56
+Bolsa_de_Tomates_Raf    1000 2.99
+Bolsa_de_Berenjenas     1000 0.87
+Bolsa_de_Aguacate   1000 6.76
+Caja_de_Cerezas     1000 4.49
+Bolsa_de_Granadas   1000 1.97
+Bolsa_de_Kiwis      1000 2.17
+Racimo_de_Uvas      1000 2.60
+Bolsa_de_Kakis      1000 2.30
