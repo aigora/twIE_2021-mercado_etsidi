@@ -1,13 +1,12 @@
-01; Lubina de 600g; 6.75
-02; Pescadilla de 1.25kg; 17.30
-03; Pulpo de 2.5kg; 82.00
-04; Almejas (Bolsa de 1.20 kg); 29.50
-05; Boquerones (Bolsa de 1.50 kg); 14.75
-06; Lomo de Atun de 800g; 42.49
-07; Caja de langostinos de 1.00kg; 62.00
-08; Salmon de 3kg; 48.00
-09; Dorada 1.20 kg; 24.75
-10; Lenguado de 400g; 13.55
-11; 1kg de lomos de bacalao; 14.90
-12; Rape entero 1.70kg; 19.55
-   
+Lubina	 1200   13.45
+Pescadilla 	1250 17.30
+Pulpo	 2500 82.00
+Almejas 	1200 29.50
+Boquerones	 1500 14.75
+Lomo_Atun 	1600     84.25
+Langostinos	 1000 62.00
+Salmon 		3000 48.00
+Dorada 		1200 24.75
+Lenguado 	1200     38.45
+Bacalao	1000 14.90
+Rape_entero	 1700 19.55
