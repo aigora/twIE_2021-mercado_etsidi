@@ -1,12 +1,12 @@
-Bolsa_de_Naranjas   1000 0.97
-Racimo_de_platanos   1000 1.71
-Bolsa_de_Manzanas    1000 0.95
-Bolsa_de_Peras   1000 1.56
-Bolsa_de_Tomates_Raf    1000 2.99
-Bolsa_de_Berenjenas     1000 0.87
-Bolsa_de_Aguacate   1000 6.76
-Caja_de_Cerezas     1000 4.49
-Bolsa_de_Granadas   1000 1.97
-Bolsa_de_Kiwis      1000 2.17
-Racimo_de_Uvas      1000 2.60
-Bolsa_de_Kakis      1000 2.30
+1 Bolsa_de_Naranjas            1.0  	0.97
+2 Racimo_de_Platanos           1.0  	1.71
+3 Bolsa_de_Manzana 	       1.0  	0.95
+4 Bolsa_de_Peras               1.0  	1.56
+5 Bolsa_de_Tomates             1.0  	2.99
+6 Bolsa_de_Berenjenas          1.0  	0.87
+7 Bolsa_de_Aguacate            1.0  	6.76
+8 Caja_de_Cerezas              1.0  	4.49
+9 Bolsa_de_Granada             1.0  	1.97
+10 Bolsa_de_Kiwis              1.0  	2.17
+11 Racimo_de_Uvas              1.0  	2.60
+12 Bolsa_de_Kakis              1.0  	2.30
