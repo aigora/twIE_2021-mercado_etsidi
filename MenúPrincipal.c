@@ -1,6 +1,10 @@
+
 #include <stdio.h>
 #include <stdlib.h>
-void menu_principal();
+
+void Menu_Principal();
+void ImagenMercadoEtsidi();
+FILE  *fd; //Ficheros dibujo
 typedef struct
 {
 	int orden;
@@ -22,7 +26,7 @@ int main()
   FILE *fruteria;
 
   system("Color e");
-  menu_principal();
+  Menu_Principal();
   scanf ("%c",&elije);
         switch (elije)
             {
@@ -30,9 +34,7 @@ int main()
             case 'A':
                 do{
                     system("cls");
-                    printf("--------------------------------------\n");
-                    printf("----------MERCADO ETSIDI.COM----------\n");
-                    printf("--------------------------------------\n\n");
+                    ImagenMercadoEtsidi();
                     printf("Seleccione una seccion\n");
                     printf("1.-Charcuteria\n");
                     printf("2.-Pescaderia\n");
@@ -436,6 +438,59 @@ int main()
 
             }
  return 0;
+}
+
+void ImagenMercadoEtsidi()
+{
+	int c;
+	
+	system ("cls");
+	system ("color E");
+		
+	fd = fopen("ImagenMercadoEtsidi.txt", "r");
+	
+	if (fd == NULL)
+	  printf("\nEl fichero no pudo ser abierto.");
+	  
+	while ((c = getc(fd)) != EOF)
+	{
+		if (c == '\n')
+		  printf("\n");
+		  
+		else if( c== '\0')
+		  printf("\0");
+		  
+		else
+		  putchar(c);
+	}
+	printf("\n\n");	
+} 
+
+void Menu_Principal()
+{
+	int c;
+	
+	system ("cls");
+	system ("color E");
+		
+	fd = fopen("letrero.txt", "r");
+	
+	if (fd == NULL)
+	  printf("\nEl fichero no pudo ser abierto.");
+	  
+	while ((c = getc(fd)) != EOF)
+	{
+		if (c == '\n')
+		  printf("\n");
+		  
+		else if( c== '\0')
+		  printf("\0");
+		  
+		else
+		  putchar(c);
+	}
+	printf("\nBienvenido a Mercado etsidi: \n\nComo desea comprar? \n\nEliga entre:\n\nOpcion (A): Visitar pagina web. \n\nOpcion (B): Llamada a domicilio.\n\n");
+} 
 }
 
 
