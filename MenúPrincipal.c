@@ -490,6 +490,17 @@ void Menu_Principal()
 	}
 	printf("\nBienvenido a Mercado etsidi: \n\nComo desea comprar? \n\nEliga entre:\n\nOpcion (A): Visitar pagina web. \n\nOpcion (B): Llamada a domicilio.\n\n");
 } 
+
+
+void menu_principal()
+{
+  char p;
+  FILE *pf;
+  pf = fopen("letrero.txt", "r");
+  while (fscanf(pf, "%c", &p) != EOF)
+  printf ("%c",p);
+  printf("\nBienvenido a Mercado etsidi: \n\nComo desea comprar? \n\nEliga entre:\n\nOpcion (A): Visitar pagina web. \n\nOpcion (B): Llamada a domicilio.\n\n");
+}
 }
 
 
