@@ -2,6 +2,7 @@
 #include <stdlib.h>
 void menu_principal();
 void pagina_web();
+void datosenvio();
 typedef struct
 {
 	int orden;
@@ -10,6 +11,13 @@ typedef struct
 	float peso;
 	float precio;
 }productos;
+
+typedef struct {
+    char nombre[50];
+    char apellido[50];
+    int telefono;
+    char direccion[100];
+}enviar;
 
 int main()
 {
@@ -23,6 +31,7 @@ int main()
   FILE *fruteria;
 
   system("Color e");
+  datosenvio();
   menu_principal();
                 do{
                     system("cls");
@@ -630,4 +639,40 @@ void pagina_web()
 	printf ("\t\t\t\t\t\t     Elige una opcion\n\n");
 }
 
+/*typedef struct {
+    char nombre[50];
+    char apellido[50];
+    int telefono;
+    char direccion[100];
+}enviar; */
 
+void datosenvio()
+{
+    FILE *clientes;
+    enviar datos;
+
+    printf("Añada sus datos para realizar la entrega\n");
+    printf("Introduzca su nombre \n");
+    scanf("%s",&datos.nombre);
+    printf("Introduzca sus apellidos\n");
+    scanf("%s",&datos.apellido);
+    printf("Introduzca un telefono de contacto\n");
+    scanf("%d",&datos.telefono);
+    printf("Introduzca la direccion del envio\n");
+    scanf("%[^\n]\n",&datos.direccion);
+
+
+    clientes = fopen("usuarios.txt","w");
+    if (clientes == NULL)
+        {
+        printf("Error al abrir el fichero.\n");
+        return -1;
+        }
+    else
+        {
+        fprintf(clientes,"Nombre:%49s\n Apellidos:%49s\n Telefono de contacto:%d\n Direccion:%s\n", datos.nombre, datos.apellido, datos.telefono, datos.direccion  );
+
+        fclose(clientes);
+
+        }
+}
