@@ -3,6 +3,23 @@
 void menu_principal();
 void pagina_web();
 void datosenvio();
+FILE  *fd; 
+
+using namespace std;
+
+struct RegistroUsuario
+{
+	int registrado;
+	char username[M];
+	char password[M];
+};
+// REGISTRO DE USUARIO 
+typedef struct RegistroUsuario usuario;
+void Menu_Inicial ();
+void registrar_usuario (usuario *);
+int  validar_usuario (char [], char [], usuario *);
+void introducir_datos_programa (usuario [], int dim);
+void introducir_datos_fichero (usuario []);
 typedef struct
 {
 	int orden;
