@@ -392,7 +392,7 @@ void datosenvio()
     printf("Introduzca un telefono de contacto\n");
     scanf("%d",&datos.telefono);
     printf("Introduzca la direccion del envio\n");
-    gets(datos.direccion);
+    scanf("%s",datos.direccion);
 
 
     clientes = fopen("usuarios.txt","w");
