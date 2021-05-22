@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 void MenuMercado();
 void ImagenMercado();
 void ImagenLetrero();
-void datosenvio();
 void Fecha(); //Funcion para mostrar la hora en pantalla
-FILE  *fd;
+void delay(int number_of_seconds);
+void datosenvio();
 
 typedef struct
 {
@@ -33,10 +34,8 @@ int main()
   FILE *panaderia;
   FILE *pescaderia;
   FILE *fruteria;
-  system("Color e");
   ImagenLetrero(); //Imagen principal
-  system("pause");
-  system("cls");
+  printf("\033[2J");
 	          //LECTURA DE FICHEROS DE DATOS
                   charcuteria = fopen("charcuteria.txt","r");
                                 if (charcuteria == NULL)
@@ -105,7 +104,7 @@ int main()
                             {
                             	do
                             	{
-                                  system("cls");
+                                  printf("\033[2J");
                                   printf("--------------------------------------\n");
                                   printf("--------------CHARCUTERIA-------------");
                                   printf("      ");
@@ -116,6 +115,7 @@ int main()
 				   {
                                     printf(" %d.-> %s\t\t%.2fg\t\t%.2f euros\t\n",tienda[i].orden,tienda[i].tipo,tienda[i].peso,tienda[i].precio);
                                    }
+
                                   printf("\n Opcion seleccionada: ");
                                   scanf("%d",&eleccion_productos);
                                   fflush(stdin);
@@ -143,8 +143,7 @@ int main()
                                         printf("\n Opcion Incorrecta\n");
 				  }while(deseo_operacion!=2 && deseo_operacion!=1 );
 
-                                   system("pause");
-                                   system ("cls");
+                                   printf("\033[2J");
                                  }while(deseo_operacion!=2);///////////
                                  break;
 			    }//case 1
@@ -153,7 +152,7 @@ int main()
                             {
 			        do
 				{
-                                   system("cls");
+                                   printf("\033[2J");
                                    printf("--------------------------------------\n");
                                    printf("--------------PESCADERIA-------------");
                                    printf("      ");
@@ -181,7 +180,7 @@ int main()
 				 do
                                  {
                                     fflush(stdin);
-                                    printf ("\n Desea comprar algo mas en la seccion de charcuteria?\n");
+                                    printf ("\n Desea comprar algo mas en la seccion de pescaderia?\n");
                                     printf (" 1.-Si\n");
                                     printf (" 2.-No\n");
                                     printf(" Respuesta: ");
@@ -190,8 +189,8 @@ int main()
                                         printf("\n Opcion Incorrecta\n");
 			         }while(deseo_operacion!=2 && deseo_operacion!=1 );
 
-				  system("pause");
-				  system ("cls");
+
+				  printf("\033[2J");
 				 }while(deseo_operacion!=2);
                                   break;
 			    }//case 2
@@ -200,7 +199,7 @@ int main()
                             {
                             	do
 				{
-                                   system("cls");
+                                   printf("\033[2J");
                                    printf("--------------------------------------\n");
                                    printf("--------------PANADERIA-------------");
                                    printf("      ");
@@ -228,7 +227,7 @@ int main()
                                  do
                                  {
                                     fflush(stdin);
-                                    printf ("\n Desea comprar algo mas en la seccion de charcuteria?\n");
+                                    printf ("\n Desea comprar algo mas en la seccion de panaderia?\n");
                                     printf (" 1.-Si\n");
                                     printf (" 2.-No\n");
                                     printf(" Respuesta: ");
@@ -238,8 +237,8 @@ int main()
 
 				 }while(deseo_operacion!=2 && deseo_operacion!=1 );
 
-                                  system("pause");
-                                  system ("cls");
+
+                                  printf("\033[2J");
                                 }while(deseo_operacion!=2);
                                  break;
 			    }//case 3
@@ -248,7 +247,7 @@ int main()
                             {
                             	do
 				{
-                                   system("cls");
+                                   printf("\033[2J");
                                    printf("--------------------------------------\n");
                                    printf("--------------FRUTERIA-------------");
                                    printf("      ");
@@ -277,7 +276,7 @@ int main()
                                  do
                                  {
                                     fflush(stdin);
-                                    printf ("\n Desea comprar algo mas en la seccion de charcuteria?\n");
+                                    printf ("\n Desea comprar algo mas en la seccion de fruteria?\n");
                                     printf (" 1.-Si\n");
                                     printf (" 2.-No\n");
                                     printf(" Respuesta: ");
@@ -287,8 +286,8 @@ int main()
 
 				 }while(deseo_operacion!=2 && deseo_operacion!=1 );
 
-                                  system("pause");
-                                  system ("cls");
+
+                                  printf("\033[2J");
                                 }while(deseo_operacion!=2);
                                 break;
 			    }//case4
@@ -317,8 +316,6 @@ int main()
 
 printf("\n\n El precio total de su compra es de %.2f\n\n",pacumulado);
 
- datosenvio();
-
  printf("\n\n\nMuchas gracias por haber confiado en MercadoEtsidi.com, le esperamos de vuelta pronto!!!\n");
 
  return 0;
@@ -345,8 +342,7 @@ void ImagenMercado()
     char c;
     FILE *fd;
 
-    system ("cls");
-    system ("color E0");
+    printf("\033[2J");
 
     fd = fopen("ImagenMercadoEtsidi.txt", "r");
 
@@ -364,8 +360,7 @@ void ImagenLetrero()
     char c;
     FILE *fd;
 
-    system ("cls");
-    system ("color E0");
+    printf("\033[2J");
 
     fd = fopen("letrero.txt", "r");
 
@@ -376,8 +371,8 @@ void ImagenLetrero()
     while (fscanf(fd,"%c",&c) != EOF)
     printf ("%c",c);
     printf("\n");
+    delay(2);
 }
-
 
 void datosenvio()
 {
@@ -422,4 +417,18 @@ void Fecha()
     strftime(fecha_dia, 100, "%d/%m/%Y", tm);
     printf(" Fecha actual: %s", fecha_dia);
 }
+
+void delay(int number_of_seconds)
+{
+
+    int milli_seconds = 1000 * number_of_seconds;
+
+
+    clock_t start_time = clock();
+
+
+    while (clock() < start_time + milli_seconds);
+}
+
+
 
