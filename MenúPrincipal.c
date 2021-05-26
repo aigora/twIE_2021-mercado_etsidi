@@ -4,7 +4,7 @@
 void MenuMercado();
 void ImagenMercado();
 void ImagenLetrero();
-void Fecha(); //Funcion para mostrar la hora en pantalla
+void Fecha(); 
 void delay(int number_of_seconds);
 void datosenvio();
 
@@ -99,7 +99,7 @@ int main()
                         scanf ("%i",&eleccion_operacion);
                         switch (eleccion_operacion)
                         {
-                            /////////////////////////////////////////////////CHARCUTERIA///////////////////////////////////////////////////////////////////////////////
+                                                                                         //CHARCUTERIA
                             case 1:
                             {
                             	do
@@ -144,10 +144,10 @@ int main()
 				  }while(deseo_operacion!=2 && deseo_operacion!=1 );
 
                                    printf("\033[2J");
-                                 }while(deseo_operacion!=2);///////////
+                                 }while(deseo_operacion!=2);
                                  break;
 			    }//case 1
-                            /////////////////////////////////////////////////PESCADERIA///////////////////////////////////////////////////////////////////////////////
+                                                                                             //PESCADERIA
                             case 2:
                             {
 			        do
@@ -194,7 +194,7 @@ int main()
 				 }while(deseo_operacion!=2);
                                   break;
 			    }//case 2
-			    /////////////////////////////////////////////////PANADERIA///////////////////////////////////////////////////////////////////////////////
+                                                                                             //PANADERIA
                             case 3:
                             {
                             	do
@@ -242,7 +242,7 @@ int main()
                                 }while(deseo_operacion!=2);
                                  break;
 			    }//case 3
-                            /////////////////////////////////////////////////FRUTERIA///////////////////////////////////////////////////////////////////////////////
+                                                                                             //FRUTERIA
                             case 4:
                             {
                             	do
@@ -336,7 +336,7 @@ void MenuMercado()
     printf ("\t\t\t\t\t\t     5.-Salir del programa\n\n");
     printf ("\t\t\t\t\t\t     Elige una opcion: ");
 }
-
+//Imagen Mercado Etsidi
 void ImagenMercado()
 {
     char c;
@@ -354,7 +354,7 @@ void ImagenMercado()
     printf ("%c",c);
     printf("\n");
 }
-
+//Ficheros de dibujo
 void ImagenLetrero()
 {
     char c;
@@ -404,7 +404,7 @@ void datosenvio()
 
         }
 }
-
+//Funcion para mostrar la hora en pantalla
 void Fecha()
 {
     time_t t;
@@ -429,6 +429,3 @@ void delay(int number_of_seconds)
 
     while (clock() < start_time + milli_seconds);
 }
-
-
-
