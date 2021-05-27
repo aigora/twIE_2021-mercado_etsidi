@@ -349,6 +349,7 @@ printf("\nEl fichero no pudo ser abierto.");
 while (fscanf(fd,"%c",&c) != EOF)
 printf ("%c",c);
 printf("\n");
+fclose(fd);
 }
 
 void ImagenLetrero()
@@ -364,6 +365,7 @@ printf("\nEl fichero no pudo ser abierto.");
 while (fscanf(letrero,"%c",&c) != EOF)
 printf ("%c",c);
 printf("\n");
+fclose(letrero);
 delay(1);
 }
 
@@ -377,13 +379,13 @@ int eleccion_datos;
 
 printf("Necesitamos sus datos para realizar la entrega\n\n");
     do{
-        printf("Introduzca su nombre separado con guiones:\n\n");
+        printf("Introduzca su nombre separado con guiones (-):\n\n");
         scanf("%s",datos.nombre);
-        printf("Introduzca sus apellidos separados con guiones:\n\n");
+        printf("Introduzca sus apellidos separados con guiones (-):\n\n");
         scanf("%s",datos.apellido);
         printf("Introduzca un telefono de contacto:\n\n");
         scanf("%d",&datos.telefono);
-        printf("Introduzca la direccion del envio separado con guiones:\n\n");
+        printf("Introduzca la direccion del envio separado con guiones (-):\n\n");
         scanf("%s",datos.direccion);
         printf("Introduzca el numero de su Tarjeta de credito:\n\n");
         scanf("%i",&datos.tarjeta);
