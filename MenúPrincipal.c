@@ -100,9 +100,9 @@ charcuteria = fopen("charcuteria.txt","r");
     do{
       do
         {
+        do{
         ImagenMercado(); //Imagen Mercado Etsidi
         fflush(stdin);
-        do{
         MenuMercado();
         scanf ("%i",&eleccion_operacion);
         switch (eleccion_operacion)
@@ -126,20 +126,21 @@ charcuteria = fopen("charcuteria.txt","r");
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
                     fflush(stdin);
-                    printf ("\n Usted ha elegido %s\n",tienda[eleccion_productos-1].tipo);
-                    printf (" Precio:%.2f euros\n",tienda[eleccion_productos-1].precio);
+                    printf("\033[2J");
+                    printf ("\n Usted ha elegido %s\n\n",tienda[eleccion_productos-1].tipo);
+                    printf (" Precio:%.2f euros\n\n",tienda[eleccion_productos-1].precio);
                     printf (" Eliga la cantidad en unidades que desea comprar: ");
                     scanf ("%d",&cantidad);
                     coste=cantidad*tienda[eleccion_productos-1].precio;
                     printf ("\n La cantidad de es: %.2f\n\n",coste);
                     pacumulado += coste;
-                    printf("La cantidad total de la compra es de %.2f\n",pacumulado);
+                    printf("La cantidad total de la compra es de %.2f\n\n",pacumulado);
                     do
                     {
                     fflush(stdin);
-                    printf ("\n Desea comprar algo mas en la seccion de charcuteria?\n");
-                    printf (" 1.-Si\n");
-                    printf (" 2.-No\n");
+                    printf ("\n Desea comprar algo mas en la seccion de charcuteria?\n\n");
+                    printf (" 1.-Si\n\n");
+                    printf (" 2.-No\n\n");
                     printf(" Respuesta: ");
                     scanf ("%i",&deseo_operacion);
                     if (deseo_operacion!=2 && deseo_operacion!=1)
@@ -168,24 +169,25 @@ charcuteria = fopen("charcuteria.txt","r");
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
                     fflush(stdin);
-                    printf (" Usted ha elegido %s\n",tienda1[eleccion_productos-1].tipo);
-                    printf (" Precio:%.2f euros\n",tienda1[eleccion_productos-1].precio);
-                    printf (" Eliga la cantidad en unidades que desea comprar\n");
+                    printf("\033[2J");
+                    printf (" \nUsted ha elegido %s\n\n",tienda1[eleccion_productos-1].tipo);
+                    printf (" Precio:%.2f euros\n\n",tienda1[eleccion_productos-1].precio);
+                    printf (" Eliga la cantidad en unidades que desea comprar\n\n");
                     scanf ("%i",&cantidad);
                     coste=cantidad*tienda1[eleccion_productos-1].precio;
                     printf (" La cantidad a pagar es: %.2f\n\n",coste);
                     pacumulado += coste;
-                    printf("La cantidad total de la compra es de %.2f\n",pacumulado);
+                    printf("La cantidad total de la compra es de %.2f\n\n",pacumulado);
                 do
                 {
                     fflush(stdin);
-                    printf ("\n Desea comprar algo mas en la seccion de pescaderia?\n");
-                    printf (" 1.-Si\n");
-                    printf (" 2.-No\n");
+                    printf ("\n Desea comprar algo mas en la seccion de pescaderia?\n\n");
+                    printf (" 1.-Si\n\n");
+                    printf (" 2.-No\n\n");
                     printf(" Respuesta: ");
                     scanf ("%i",&deseo_operacion);
                     if (deseo_operacion!=2 && deseo_operacion!=1)
-                    printf("\n Opcion Incorrecta\n");
+                    printf("\n Opcion Incorrecta\n\n");
                     } while(deseo_operacion!=2 && deseo_operacion!=1 );
 
 
@@ -203,31 +205,32 @@ charcuteria = fopen("charcuteria.txt","r");
                     Fecha();
                     printf("\n--------------------------------------\n\n");
                     printf(" Seleccione el producto deseado\n\n");
-                    for(k=0;k<=nproductos2;k++)
+                    for(k=0;k<nproductos2;k++)
                         {
                         printf(" %i.-%s\t\t%.2f euros\t\n",tienda2[k].orden,tienda2[k].tipo,tienda2[k].precio);
                         }
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
                     fflush(stdin);
-                    printf (" Usted ha elegido %s\n",tienda2[eleccion_productos-1].tipo);
-                    printf (" Precio:%.2f euros\n",tienda2[eleccion_productos-1].precio);
-                    printf (" Eliga la cantidad en unidades que desea comprar\n");
+                    printf("\033[2J");
+                    printf (" \nUsted ha elegido %s\n\n",tienda2[eleccion_productos-1].tipo);
+                    printf (" Precio:%.2f euros\n\n",tienda2[eleccion_productos-1].precio);
+                    printf (" Eliga la cantidad en unidades que desea comprar\n\n");
                     scanf ("%i",&cantidad);
                     coste=cantidad*tienda2[eleccion_productos-1].precio;
                     printf (" La cantidad a pagar es: %.2f\n\n",coste);
                     pacumulado += coste;
-                    printf("La cantidad total de la compra es de %.2f\n",pacumulado);
+                    printf("La cantidad total de la compra es de %.2f\n\n",pacumulado);
                     do
                     {
                     fflush(stdin);
-                    printf ("\n Desea comprar algo mas en la seccion de panaderia?\n");
-                    printf (" 1.-Si\n");
-                    printf (" 2.-No\n");
+                    printf ("\n Desea comprar algo mas en la seccion de panaderia?\n\n");
+                    printf (" 1.-Si\n\n");
+                    printf (" 2.-No\n\n");
                     printf(" Respuesta: ");
                     scanf ("%i",&deseo_operacion);
                     if (deseo_operacion!=2 && deseo_operacion!=1)
-                    printf("\n Opcion Incorrecta\n");
+                    printf("\n Opcion Incorrecta\n\n");
                     } while(deseo_operacion!=2 && deseo_operacion!=1 );
 
                     printf("\033[2J");
@@ -251,14 +254,15 @@ charcuteria = fopen("charcuteria.txt","r");
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
                     fflush(stdin);
-                    printf (" Usted ha elegido %s\n",tienda3[eleccion_productos-1].tipo);
-                    printf (" Precio:%.2f euros\n",tienda3[eleccion_productos-1].precio);
-                    printf (" Eliga la cantidad en unidades que desea comprar\n");
+                    printf("\033[2J");
+                    printf (" \nUsted ha elegido %s\n\n",tienda3[eleccion_productos-1].tipo);
+                    printf (" Precio:%.2f euros\n\n",tienda3[eleccion_productos-1].precio);
+                    printf (" Eliga la cantidad en unidades que desea comprar\n\n");
                     scanf ("%i",&cantidad);
                     coste=cantidad*tienda3[eleccion_productos-1].precio;
                     printf (" La cantidad a pagar es: %.2f\n\n",coste);
                     pacumulado += coste;
-                    printf("La cantidad total de la compra es de %.2f\n",pacumulado);
+                    printf("La cantidad total de la compra es de %.2f\n\n",pacumulado);
                     do
                         {
                     fflush(stdin);
@@ -283,6 +287,7 @@ charcuteria = fopen("charcuteria.txt","r");
             {
                 printf ("ERROR!!! opcion no valida\n\n");
                 printf ("Introduce una opcion valida\n\n");
+                delay (1.5);
             }
             else
                 correcto=0;
@@ -290,6 +295,7 @@ charcuteria = fopen("charcuteria.txt","r");
 
             //switch MENU MERCADO
                     do{
+                    printf("\033[2J");
                     printf ("\n Desea seguir comprando en MERCADO ETSIDI?\n\n");
                     printf (" 1.-Si\n\n");
                     printf (" 2.-No\n\n");
@@ -301,12 +307,14 @@ charcuteria = fopen("charcuteria.txt","r");
                     }while(eleccion_compra!=2 && eleccion_compra!=1);
 
             }while (eleccion_compra!=2);
+    printf("\033[2J");
     printf("\n\n El precio total de su compra es de %.2f\n\n",pacumulado);
     datosenvio (pacumulado);
     delay(1);
     printf("Compra realizada correctamente!!!!");
-    printf("\n\n\nMuchas gracias por haber confiado en MercadoEtsidi.com, le esperamos de vuelta pronto!!!\n\n");
     delay(1);
+    printf("\n\n\nMuchas gracias por haber confiado en MercadoEtsidi.com, le esperamos de vuelta pronto!!!\n\n");
+    printf("\033[2J");
     printf ("Desea salir de la pagina de MERCADO ETSIDI?\n\n");
     printf("1.-Si\n\n");
     printf("2.-No\n\n");
@@ -366,7 +374,7 @@ while (fscanf(letrero,"%c",&c) != EOF)
 printf ("%c",c);
 printf("\n");
 fclose(letrero);
-delay(1);
+delay(2);
 }
 
 
@@ -411,11 +419,12 @@ printf("Necesitamos sus datos para realizar la entrega\n\n");
         printf("2.-No\n\n");
         scanf ("%i",&eleccion_datos);
         delay (1);
-        }while (datos.saldo<pacumulado);
-        if (datos.saldo<pacumulado)
+	if (datos.saldo<pacumulado)
         {
          printf ("No tiene saldo suficiente!!\n\n");
         }
+        }while (datos.saldo<pacumulado);
+        
 
     }while (eleccion_datos==2);
 }
@@ -442,3 +451,4 @@ clock_t start_time = clock();
 
 while (clock() < start_time + milli_seconds);
 }
+
