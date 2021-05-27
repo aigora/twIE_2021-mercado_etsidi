@@ -123,11 +123,15 @@ charcuteria = fopen("charcuteria.txt","r");
                         printf(" %d.-> %s\t\t%.2fg\t\t%.2f euros\t\n",tienda[i].orden,tienda[i].tipo,tienda[i].peso,tienda[i].precio);
                         }
 
+                    do
+                    {
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
-                    fflush(stdin);
+                    }while(eleccion_productos<1 || eleccion_productos>nproductos);
+
                     printf("\033[2J");
                     printf ("\n Usted ha elegido %s\n\n",tienda[eleccion_productos-1].tipo);
+                    fflush(stdin);
                     printf (" Precio:%.2f euros\n\n",tienda[eleccion_productos-1].precio);
                     printf (" Eliga la cantidad en unidades que desea comprar: ");
                     scanf ("%d",&cantidad);
@@ -135,6 +139,7 @@ charcuteria = fopen("charcuteria.txt","r");
                     printf ("\n La cantidad de es: %.2f\n\n",coste);
                     pacumulado += coste;
                     printf("La cantidad total de la compra es de %.2f\n\n",pacumulado);
+
                     do
                     {
                     fflush(stdin);
@@ -166,8 +171,12 @@ charcuteria = fopen("charcuteria.txt","r");
                         printf(" %i.-%s\t\t%.2f\t%s\t\t%.2f euros\t\n",tienda1[j].orden,tienda1[j].tipo,tienda1[j].peso,tienda1[j].unidad_peso,tienda1[j].precio);
                         }
 
+                     do
+                    {
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
+                    }while(eleccion_productos<1 || eleccion_productos>nproductos1);
+
                     fflush(stdin);
                     printf("\033[2J");
                     printf (" \nUsted ha elegido %s\n\n",tienda1[eleccion_productos-1].tipo);
@@ -209,8 +218,12 @@ charcuteria = fopen("charcuteria.txt","r");
                         {
                         printf(" %i.-%s\t\t%.2f euros\t\n",tienda2[k].orden,tienda2[k].tipo,tienda2[k].precio);
                         }
+                     do
+                    {
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
+                    }while(eleccion_productos<1 || eleccion_productos>nproductos2);
+
                     fflush(stdin);
                     printf("\033[2J");
                     printf (" \nUsted ha elegido %s\n\n",tienda2[eleccion_productos-1].tipo);
@@ -251,8 +264,12 @@ charcuteria = fopen("charcuteria.txt","r");
                         {
                         printf(" %i.-%s\t\t%.2f Kg\t\t%.2f euros\t\n",tienda3[l].orden,tienda3[l].tipo,tienda3[l].peso,tienda3[l].precio);
                         }
+                     do
+                    {
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
+                    }while(eleccion_productos<1 || eleccion_productos>nproductos1);
+
                     fflush(stdin);
                     printf("\033[2J");
                     printf (" \nUsted ha elegido %s\n\n",tienda3[eleccion_productos-1].tipo);
@@ -424,7 +441,7 @@ printf("Necesitamos sus datos para realizar la entrega\n\n");
          printf ("No tiene saldo suficiente!!\n\n");
         }
         }while (datos.saldo<pacumulado);
-        
+
 
     }while (eleccion_datos==2);
 }
@@ -451,4 +468,3 @@ clock_t start_time = clock();
 
 while (clock() < start_time + milli_seconds);
 }
-
