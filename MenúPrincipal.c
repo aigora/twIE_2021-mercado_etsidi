@@ -23,8 +23,6 @@ char nombre[50];
 char apellido[50];
 int telefono;
 char direccion[100];
-int tarjeta;
-float saldo;
 }enviar;
 
 int main()
@@ -108,7 +106,7 @@ charcuteria = fopen("charcuteria.txt","r");
         ImagenMercado(); //Imagen de la disposicion de  las tiendas
         fflush(stdin);
         MenuMercado();//Añadimpos mediante funcion el menu principal del mercado
-        
+
         scanf ("%i",&eleccion_operacion);
         switch (eleccion_operacion)//switch-case para las 5 opciones que ofrece el menu principal
             {
@@ -135,7 +133,7 @@ charcuteria = fopen("charcuteria.txt","r");
                     }while(eleccion_productos<1 || eleccion_productos>nproductos);//si la opcion no corresponde a una eleccion valida vuelve a preguntar
 
                     printf("\033[2J");
-                    printf ("\n Usted ha elegido %s\n\n",tienda[eleccion_productos-1].tipo); 
+                    printf ("\n Usted ha elegido %s\n\n",tienda[eleccion_productos-1].tipo);
                     fflush(stdin);
                     printf (" Precio:%.2f euros\n\n",tienda[eleccion_productos-1].precio);
                     printf (" Eliga la cantidad en unidades que desea comprar: ");
@@ -159,7 +157,10 @@ charcuteria = fopen("charcuteria.txt","r");
                     printf("\033[2J");
                 }while(deseo_operacion!=2);
             break;//finaliza aqui el case 1
-	    case 2:                                                                        //PESCADERIA
+
+
+
+            case 2:                                                                   //PESCADERIA
                 do
                 {
                     printf("\033[2J");
@@ -332,7 +333,8 @@ charcuteria = fopen("charcuteria.txt","r");
     printf("\n\n El precio total de su compra es de %.2f\n\n",pacumulado); //Precio total que el usuario ha ido acumulado a lo largo de su compra
     datosenvio (pacumulado);
     delay(1);
-    printf("Compra realizada correctamente!!!!");
+    printf("Compra realizada correctamente!!!!\n\n\n");
+    printf("El pago se realizara en efectivo,por tarjeta o por Bizum en el momento de la entrega a nuestro repartidor\n\n");
     delay(1);
     printf("\n\n\nMuchas gracias por haber confiado en MercadoEtsidi.com, le esperamos de vuelta pronto!!!\n\n");
     printf("\033[2J");
@@ -369,7 +371,7 @@ void ImagenMercado()
 char c;
 FILE *fd;
 printf("\033[2J");
-fd = fopen("ImagenMercadoEtsidi.txt", "r");//la imagen que muestra en pantalla corresponde a un letrero 
+fd = fopen("ImagenMercadoEtsidi.txt", "r");//la imagen que muestra en pantalla corresponde a un letrero
 if (fd == NULL)
 {
 printf("\nEl fichero no pudo ser abierto.");
@@ -416,11 +418,8 @@ printf("Necesitamos sus datos para realizar la entrega\n\n");
         scanf("%d",&datos.telefono);
         printf("Introduzca la direccion del envio separado con guiones (-):\n\n");
         scanf("%s",datos.direccion);
-        printf("Introduzca el numero de su Tarjeta de credito:\n\n");
-        scanf("%i",&datos.tarjeta);
-        do{
-        printf ("Introduzca el saldo de su tarjeta de credito:\n\n");
-        scanf("%f",&datos.saldo);
+
+
         clientes = fopen("usuarios.txt","w");
         if (clientes == NULL)
             {
@@ -428,7 +427,7 @@ printf("Necesitamos sus datos para realizar la entrega\n\n");
             }
         else
             {
-            fprintf(clientes,"Nombre:%s\n Apellido: %s\n Telefono:%i\n Direccion:%s\n Tarjeta:%i\n Saldo:%f\n ",datos.nombre,datos.apellido,datos.telefono,datos.direccion,datos.tarjeta,datos.saldo );
+            fprintf(clientes,"Nombre:%s\n Apellido: %s\n Telefono:%i\n Direccion:%s\n\n ",datos.nombre,datos.apellido,datos.telefono,datos.direccion);
             fclose(clientes);
             }
 
@@ -440,11 +439,6 @@ printf("Necesitamos sus datos para realizar la entrega\n\n");
         printf("2.-No\n\n");
         scanf ("%i",&eleccion_datos);
         delay (1);
-	if (datos.saldo<pacumulado)
-        {
-         printf ("No tiene saldo suficiente!!\n\n");
-        }
-        }while (datos.saldo<pacumulado);
 
 
     }while (eleccion_datos==2);
@@ -473,4 +467,3 @@ clock_t start_time = clock();
 
 while (clock() < start_time + milli_seconds);
 }
-
