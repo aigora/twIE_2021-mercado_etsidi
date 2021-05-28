@@ -4,11 +4,11 @@
 void MenuMercado();
 void ImagenMercado();
 void ImagenLetrero();
-void Fecha(); 
+void Fecha();
 void delay(int number_of_seconds);
 void datosenvio(float pacumulado);
 
-typedef struct
+typedef struct //estructura para almacenar los datos de las tiendas
 {
 int orden;
 char tipo[50];
@@ -17,7 +17,8 @@ float peso;
 float precio;
 }productos;
 
-typedef struct {
+typedef struct //estrutura para guardar los datos para realizar el envio
+ {
 char nombre[50];
 char apellido[50];
 int telefono;
@@ -29,16 +30,18 @@ float saldo;
 int main()
 {
 productos tienda[20],tienda1[20],tienda2[20],tienda3[20];
-float coste, pacumulado=0;
+float coste, pacumulado=0;//diferenciamos entre precio que genera cada operacion y precio que lleva acumulado
+
 int eleccion_operacion,eleccion_compra,cantidad,eleccion_productos,i,j,k,l,nproductos=0,nproductos1=0,nproductos2=0,nproductos3=0;
 int deseo_operacion,nuevo_cliente,correcto=1;
-FILE *charcuteria;
+
+FILE *charcuteria;//un puntero a fichero por cada tienda
 FILE *panaderia;
 FILE *pescaderia;
 FILE *fruteria;
 ImagenLetrero(); //Imagen principal
 printf("\033[2J");
-	
+
                                                                         //LECTURA DE FICHEROS DE DATOS
 charcuteria = fopen("charcuteria.txt","r");
     if (charcuteria == NULL)
@@ -83,8 +86,8 @@ charcuteria = fopen("charcuteria.txt","r");
         }
         fclose(panaderia);
     }
-	
-	
+
+
     fruteria = fopen("fruteria.txt","r");
     if (fruteria == NULL)
     {
@@ -102,17 +105,18 @@ charcuteria = fopen("charcuteria.txt","r");
       do
         {
         do{
-        ImagenMercado(); //Imagen Mercado Etsidi
+        ImagenMercado(); //Imagen de la disposicion de  las tiendas
         fflush(stdin);
-        MenuMercado();
+        MenuMercado();//Añadimpos mediante funcion el menu principal del mercado
+        
         scanf ("%i",&eleccion_operacion);
-        switch (eleccion_operacion)
+        switch (eleccion_operacion)//switch-case para las 5 opciones que ofrece el menu principal
             {
                                                                                     //CHARCUTERIA
             case 1:
                 do
                 {
-                    printf("\033[2J");
+                    printf("\033[2J");//codigo ANSI para limpiar pantalla
                     printf("--------------------------------------\n");
                     printf("--------------CHARCUTERIA-------------");
                     printf(" ");
@@ -128,10 +132,10 @@ charcuteria = fopen("charcuteria.txt","r");
                     {
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
-                    }while(eleccion_productos<1 || eleccion_productos>nproductos);
+                    }while(eleccion_productos<1 || eleccion_productos>nproductos);//si la opcion no corresponde a una eleccion valida vuelve a preguntar
 
                     printf("\033[2J");
-                    printf ("\n Usted ha elegido %s\n\n",tienda[eleccion_productos-1].tipo); //Eleccion del producto del fichero 
+                    printf ("\n Usted ha elegido %s\n\n",tienda[eleccion_productos-1].tipo); 
                     fflush(stdin);
                     printf (" Precio:%.2f euros\n\n",tienda[eleccion_productos-1].precio);
                     printf (" Eliga la cantidad en unidades que desea comprar: ");
@@ -149,12 +153,12 @@ charcuteria = fopen("charcuteria.txt","r");
                     printf (" 2.-No\n\n");
                     printf(" Respuesta: ");
                     scanf ("%i",&deseo_operacion);
-                    if (deseo_operacion!=2 && deseo_operacion!=1) //Si el usuario responde distinto a lo que se pregunta, se volvera a repetir la pregunta 
+                    if (deseo_operacion!=2 && deseo_operacion!=1) //Si el usuario responde distinto a lo que se pregunta, se volvera a repetir la pregunta
 	            printf("\n Opcion Incorrecta\n");             //tantas veces como sea posible hasta que el usuario marce una de las opciones posibles.
                     } while(deseo_operacion!=2 && deseo_operacion!=1 );
                     printf("\033[2J");
                 }while(deseo_operacion!=2);
-            break;//case 1
+            break;//finaliza aqui el case 1
                                                                                     //PESCADERIA
                 do
                 {
@@ -293,9 +297,9 @@ charcuteria = fopen("charcuteria.txt","r");
                     printf("\033[2J");
                 }while(deseo_operacion!=2);
             break;//case4
-			
+
             case 5: //Opcion salir del programa
-                exit(-1);
+                exit(-1);//funcion para finalizar proceso
             break;//case5
 
             }
@@ -365,7 +369,7 @@ void ImagenMercado()
 char c;
 FILE *fd;
 printf("\033[2J");
-fd = fopen("ImagenMercadoEtsidi.txt", "r");
+fd = fopen("ImagenMercadoEtsidi.txt", "r");//la imagen que muestra en pantalla corresponde a un letrero 
 if (fd == NULL)
 {
 printf("\nEl fichero no pudo ser abierto.");
@@ -460,7 +464,7 @@ strftime(fecha_dia, 100, "%d/%m/%Y", tm);
 printf(" Fecha actual: %s", fecha_dia);
 }
 
-void delay(int number_of_seconds)
+void delay(int number_of_seconds)//añade una pequeña pausa al igual que haria system(pause) en windows
 {
 
 int milli_seconds = 1000 * number_of_seconds;
@@ -469,3 +473,4 @@ clock_t start_time = clock();
 
 while (clock() < start_time + milli_seconds);
 }
+
