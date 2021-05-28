@@ -21,9 +21,9 @@ typedef struct //estrutura para guardar los datos para realizar el envio
  {
 char nombre[50];
 char apellido[50];
-int telefono;
+long int telefono;
 char direccion[100];
-int tarjeta;
+long int tarjeta;
 float saldo;
 }enviar;
 
@@ -102,10 +102,10 @@ charcuteria = fopen("charcuteria.txt","r");
         fclose(fruteria);
     }
     do{
+     pacumulado=0.0; //Para inicializar la cuenta total que va acumulando las compras
       do
         {
         do{
-	pacumulado=0.0; //Para inicializar la cuenta total que va acumulando las compras
         ImagenMercado(); //Imagen de la disposicion de  las tiendas
         fflush(stdin);
         MenuMercado();//Añadimpos mediante funcion el menu principal del mercado
@@ -133,6 +133,10 @@ charcuteria = fopen("charcuteria.txt","r");
                     {
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
+		    if(eleccion_productos<1 || eleccion_productos>nproductos)
+                    	{
+                        printf("\n\nERROR!! Seleccione una opcion valida\n\n");
+                    	}
                     }while(eleccion_productos<1 || eleccion_productos>nproductos);//si la opcion no corresponde a una eleccion valida vuelve a preguntar
 
                     printf("\033[2J");
@@ -179,6 +183,10 @@ charcuteria = fopen("charcuteria.txt","r");
                     {
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
+		    if(eleccion_productos<1 || eleccion_productos>nproductos1)
+                   	 {
+                        printf("\n\nERROR!! Seleccione una opcion valida\n\n");
+                    	 }
                     }while(eleccion_productos<1 || eleccion_productos>nproductos1);
 
                     fflush(stdin);
@@ -226,6 +234,10 @@ charcuteria = fopen("charcuteria.txt","r");
                     {
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
+		    if(eleccion_productos<1 || eleccion_productos>nproductos2)
+                    {
+                        printf("\n\nERROR!! Seleccione una opcion valida\n\n");
+                    }
                     }while(eleccion_productos<1 || eleccion_productos>nproductos2);
 
                     fflush(stdin);
@@ -272,6 +284,10 @@ charcuteria = fopen("charcuteria.txt","r");
                     {
                     printf("\n Opcion seleccionada: ");
                     scanf("%d",&eleccion_productos);
+		    if(eleccion_productos<1 || eleccion_productos>nproductos1)
+                    {
+                        printf("\n\nERROR!! Seleccione una opcion valida\n\n");
+                    }
                     }while(eleccion_productos<1 || eleccion_productos>nproductos1);
 
                     fflush(stdin);
@@ -336,6 +352,7 @@ charcuteria = fopen("charcuteria.txt","r");
     printf("Compra realizada correctamente!!!!");
     delay(1);
     printf("\n\n\nMuchas gracias por haber confiado en MercadoEtsidi.com, le esperamos de vuelta pronto!!!\n\n");
+    delay(1.5);
     printf("\033[2J");
     printf ("Desea salir de la pagina de MERCADO ETSIDI?\n\n");
     printf("1.-Si\n\n");
@@ -414,11 +431,11 @@ printf("Necesitamos sus datos para realizar la entrega\n\n");
         printf("Introduzca sus apellidos separados con guiones (-):\n\n");
         scanf("%s",datos.apellido);
         printf("Introduzca un telefono de contacto:\n\n");
-        scanf("%d",&datos.telefono);
+        scanf("%li",&datos.telefono);
         printf("Introduzca la direccion del envio separado con guiones (-):\n\n");
         scanf("%s",datos.direccion);
         printf("Introduzca el numero de su Tarjeta de credito:\n\n");
-        scanf("%i",&datos.tarjeta);
+        scanf("%li",&datos.tarjeta);
         do{
         printf ("Introduzca el saldo de su tarjeta de credito:\n\n");
         scanf("%f",&datos.saldo);
@@ -429,13 +446,13 @@ printf("Necesitamos sus datos para realizar la entrega\n\n");
             }
         else
             {
-            fprintf(clientes,"Nombre:%s\n Apellido: %s\n Telefono:%i\n Direccion:%s\n Tarjeta:%i\n Saldo:%f\n ",datos.nombre,datos.apellido,datos.telefono,datos.direccion,datos.tarjeta,datos.saldo );
+            fprintf(clientes,"Nombre:%s\n Apellido: %s\n Telefono:%li\n Direccion:%s\n Tarjeta:%li\n Saldo:%f\n ",datos.nombre,datos.apellido,datos.telefono,datos.direccion,datos.tarjeta,datos.saldo );
             fclose(clientes);
             }
 
         printf("Muchas gracias: %s %s \n\n",datos.nombre,datos.apellido);
         printf("El envio se realizara a la direccion: %s\n\n",datos.direccion);
-        printf("Para cualquier informacion lo llamaremos al numero: %i\n\n",datos.telefono);
+        printf("Para cualquier informacion lo llamaremos al numero: %li\n\n",datos.telefono);
         printf("Son estos datos correctos?\n\n");
         printf("1.-Si\n\n");
         printf("2.-No\n\n");
