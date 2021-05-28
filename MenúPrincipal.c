@@ -349,7 +349,7 @@ printf("\033[2J");//codigo ANSI para limpiar la pantalla
     printf("\n\n El precio total de su compra es de %.2f\n\n",pacumulado); //Precio total que el usuario ha ido acumulado a lo largo de su compra
     datosenvio (pacumulado);//llamada a la función de datos para el pago y posterior envio
     delay(1);
-    printf("Compra realizada correctamente!!!! Su compra será enviada");
+    printf("Compra realizada correctamente!!!! Su compra sera enviada");
     delay(1);
     printf("\n\n\nMuchas gracias por haber confiado en MercadoEtsidi.com, le esperamos de vuelta pronto!!!\n\n");
     delay(1.5);
