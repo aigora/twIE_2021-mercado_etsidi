@@ -1,13 +1,12 @@
 1 Lubina_fresca             	600 g                  6.75
 2 Pescadilla_fresca         	1.25 kg                17.30 
 3 Calamar_fresco             	2.5 kg                 82.00 
-4 Bolsa_de_almejas  	1.20 kg                29.50 
-5 Bolsa_de_boquerones	1.50 kg               14.75 
-6 Lomo_de_Atun_fresco      	800 g                 42.49 
-7 Caja_de_langostinos	1.00 kg               62.00 
+4 Bolsa_de_almejas  		1.20 kg                29.50 
+5 Bolsa_de_boquerones		1.50 kg                14.75 
+6 Lomo_de_Atun_fresco      	800 g                  42.49 
+7 Caja_de_langostinos		1.00 kg                62.00 
 8 Salmon_fresco            	3 kg                   48.00 
-9 Dorada_fresca            	1.20 kg              24.75 
-10 Lenguado_fresco          	400 g                 13.55 
-11 lomos_de_bacalao  	1kg                  14.90 
-12 Rape_entero_fresco      	1.70 kg               19.55
-
+9 Dorada_fresca            	1.20 kg                24.75 
+10 Lenguado_fresco          	400 g                  13.55 
+11 lomos_de_bacalao  		1kg                    14.90 
+12 Rape_entero_fresco      	1.70 kg                19.55
