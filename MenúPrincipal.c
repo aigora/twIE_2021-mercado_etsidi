@@ -8,7 +8,7 @@ void Fecha();
 void delay(int number_of_seconds);
 void datosenvio(float pacumulado);
 
-typedef struct //estructura para almacenar los datos de las tiendas
+typedef struct //estructura para almacenar los datos de los ficheros de las secciones de la tienda
 {
 int orden;
 char tipo[50];
@@ -17,7 +17,7 @@ float peso;
 float precio;
 }productos;
 
-typedef struct //estrutura para guardar los datos para realizar el envio
+typedef struct //estrutura para guardar los datos del usuario para realizar el pago y posterior envio
  {
 char nombre[50];
 char apellido[50];
@@ -29,21 +29,21 @@ float saldo;
 
 int main()
 {
-productos tienda[20],tienda1[20],tienda2[20],tienda3[20];
+productos tienda[20],tienda1[20],tienda2[20],tienda3[20];//vectores de la estructura "productos"
 float coste, pacumulado=0;//diferenciamos entre precio que genera cada operacion y precio que lleva acumulado
 
-int eleccion_operacion,eleccion_compra,cantidad,eleccion_productos,i,j,k,l,nproductos=0,nproductos1=0,nproductos2=0,nproductos3=0;
+int eleccion_operacion,eleccion_compra,cantidad,eleccion_productos,i,j,k,l,nproductos=0,nproductos1=0,nproductos2=0,nproductos3=0;//variables para los diferentes bucles utilizados
 int deseo_operacion,nuevo_cliente,correcto=1;
 
 FILE *charcuteria;//un puntero a fichero por cada tienda
 FILE *panaderia;
 FILE *pescaderia;
 FILE *fruteria;
-ImagenLetrero(); //Imagen principal
-printf("\033[2J");
+ImagenLetrero(); //Imagen principal que muestra el nombre de la tienda
+printf("\033[2J");//codigo ANSI para limpiar la pantalla
 
-                                                                        //LECTURA DE FICHEROS DE DATOS
-charcuteria = fopen("charcuteria.txt","r");
+                                               //APERTURA DE LOS FICHEROS DE LAS SECCIONES DE LA TIENDA EN MODO LECTURA
+    charcuteria = fopen("charcuteria.txt","r");
     if (charcuteria == NULL)
     {
     printf("Error al abrir el archivo destino.\n");
@@ -106,9 +106,9 @@ charcuteria = fopen("charcuteria.txt","r");
       do
         {
         do{
-        ImagenMercado(); //Imagen de la disposicion de  las tiendas
+        ImagenMercado(); //Ilustracion de un supermercado que muestra la disposición de  las tiendas
         fflush(stdin);
-        MenuMercado();//Añadimpos mediante funcion el menu principal del mercado
+        MenuMercado();//llamada a la función que muestra menú principal del mercado
         
         scanf ("%i",&eleccion_operacion);
         switch (eleccion_operacion)//switch-case para las 5 opciones que ofrece el menu principal
@@ -124,7 +124,7 @@ charcuteria = fopen("charcuteria.txt","r");
                     Fecha();
                     printf("\n--------------------------------------\n\n");
                     printf("Seleccione el producto deseado\n\n");
-                    for(i=0;i<nproductos;i++)
+                    for(i=0;i<nproductos;i++)//bucle for que imprime la lista de productos
                         {
                         printf(" %d.-> %s\t\t%.2fg\t\t%.2f euros\t\n",tienda[i].orden,tienda[i].tipo,tienda[i].peso,tienda[i].precio);
                         }
@@ -137,18 +137,18 @@ charcuteria = fopen("charcuteria.txt","r");
                     	{
                         printf("\n\nERROR!! Seleccione una opcion valida\n\n");
                     	}
-                    }while(eleccion_productos<1 || eleccion_productos>nproductos);//si la opcion no corresponde a una eleccion valida vuelve a preguntar
+                    }while(eleccion_productos<1 || eleccion_productos>nproductos);//bucle do-while,si la elección no corresponde a una opción valida vuelve a preguntar
 
                     printf("\033[2J");
-                    printf ("\n Usted ha elegido %s\n\n",tienda[eleccion_productos-1].tipo); 
+                    printf ("\n Usted ha elegido %s\n\n",tienda[eleccion_productos-1].tipo);//se imprime el producto seleccionado 
                     fflush(stdin);
-                    printf (" Precio:%.2f euros\n\n",tienda[eleccion_productos-1].precio);
+                    printf (" Precio:%.2f euros\n\n",tienda[eleccion_productos-1].precio);//se imprime le precio del producto
                     printf (" Eliga la cantidad en unidades que desea comprar: ");
                     scanf ("%d",&cantidad);
                     coste=cantidad*tienda[eleccion_productos-1].precio;
                     printf ("\n La cantidad de es: %.2f\n\n",coste);
                     pacumulado += coste;
-                    printf("La cantidad total de la compra es de %.2f\n\n",pacumulado);
+                    printf("La cantidad total de la compra es de %.2f\n\n",pacumulado);//se acumula el precio total de la compra y se imprime
 
                     do
                     {
@@ -158,8 +158,8 @@ charcuteria = fopen("charcuteria.txt","r");
                     printf (" 2.-No\n\n");
                     printf(" Respuesta: ");
                     scanf ("%i",&deseo_operacion);
-                    if (deseo_operacion!=2 && deseo_operacion!=1) //Si el usuario responde distinto a lo que se pregunta, se volvera a repetir la pregunta
-	            printf("\n Opcion Incorrecta\n");             //tantas veces como sea posible hasta que el usuario marce una de las opciones posibles.
+                    if (deseo_operacion!=2 && deseo_operacion!=1) //Si el usuario responde distinto a lo que se pregunta, se volverá a repetir la pregunta
+	            printf("\n Opcion Incorrecta\n");             //tantas veces como sea posible hasta que el usuario marque una de las opciones validas.
                     } while(deseo_operacion!=2 && deseo_operacion!=1 );
                     printf("\033[2J");
                 }while(deseo_operacion!=2);
@@ -347,14 +347,14 @@ charcuteria = fopen("charcuteria.txt","r");
             }while (eleccion_compra!=2);
     printf("\033[2J");
     printf("\n\n El precio total de su compra es de %.2f\n\n",pacumulado); //Precio total que el usuario ha ido acumulado a lo largo de su compra
-    datosenvio (pacumulado);
+    datosenvio (pacumulado);//llamada a la función de datos para el pago y posterior envio
     delay(1);
-    printf("Compra realizada correctamente!!!!");
+    printf("Compra realizada correctamente!!!! Su compra será enviada");
     delay(1);
     printf("\n\n\nMuchas gracias por haber confiado en MercadoEtsidi.com, le esperamos de vuelta pronto!!!\n\n");
     delay(1.5);
     printf("\033[2J");
-    printf ("Desea salir de la pagina de MERCADO ETSIDI?\n\n");
+    printf ("Desea salir de la pagina de MERCADO ETSIDI?\n\n");//Pregunta para salir de la pagina o seguir comprando
     printf("1.-Si\n\n");
     printf("2.-No\n\n");
     scanf("%i",&nuevo_cliente);
@@ -365,7 +365,7 @@ charcuteria = fopen("charcuteria.txt","r");
 
                                                                                     //FUNCIONES
 
-void MenuMercado()
+void MenuMercado()//funcion que imprime el menu principal de la tienda
 {
 printf("\t\t\t\t\t-----------------------------------------\n");
 printf("\t\t\t\t\t-------------MERCADO ETSIDI.COM----------\n");
@@ -398,13 +398,13 @@ printf("\n");
 fclose(fd);
 }
 
-//Ficheros de dibujo
+//Funcion que muestra el letrero con el nombre el mercado
 void ImagenLetrero()
 {
 char c;
 FILE *letrero;
 printf("\033[2J");
-letrero = fopen("letrero.txt", "r");
+letrero = fopen("letrero.txt", "r");//se abre el fichero que contiene el letrero en modo lectura
 if (letrero == NULL)
 {
 printf("\nEl fichero no pudo ser abierto.");
@@ -426,6 +426,7 @@ int eleccion_datos;
 
 printf("Necesitamos sus datos para realizar la entrega\n\n");
     do{
+	printf("\033[2J");
         printf("Introduzca su nombre separado con guiones (-):\n\n");
         scanf("%s",datos.nombre);
         printf("Introduzca sus apellidos separados con guiones (-):\n\n");
@@ -439,7 +440,7 @@ printf("Necesitamos sus datos para realizar la entrega\n\n");
         do{
         printf ("Introduzca el saldo de su tarjeta de credito:\n\n");
         scanf("%f",&datos.saldo);
-        clientes = fopen("usuarios.txt","w");
+        clientes = fopen("usuarios.txt","w");//Apertura de fichero en modo escritura para guardar los datos del cliente
         if (clientes == NULL)
             {
             printf("Error al abrir el fichero.\n");
@@ -449,7 +450,8 @@ printf("Necesitamos sus datos para realizar la entrega\n\n");
             fprintf(clientes,"Nombre:%s\n Apellido: %s\n Telefono:%li\n Direccion:%s\n Tarjeta:%li\n Saldo:%f\n ",datos.nombre,datos.apellido,datos.telefono,datos.direccion,datos.tarjeta,datos.saldo );
             fclose(clientes);
             }
-
+	delay (1);
+	printf("\033[2J");
         printf("Muchas gracias: %s %s \n\n",datos.nombre,datos.apellido);
         printf("El envio se realizara a la direccion: %s\n\n",datos.direccion);
         printf("Para cualquier informacion lo llamaremos al numero: %li\n\n",datos.telefono);
@@ -482,7 +484,7 @@ strftime(fecha_dia, 100, "%d/%m/%Y", tm);
 printf(" Fecha actual: %s", fecha_dia);
 }
 
-void delay(int number_of_seconds)//añade una pequeña pausa al igual que haria system(pause) en windows
+void delay(int number_of_seconds)//añade una pequeña pausa al igual que lo haria "sleep"
 {
 
 int milli_seconds = 1000 * number_of_seconds;
