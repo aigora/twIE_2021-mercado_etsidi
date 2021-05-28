@@ -159,7 +159,7 @@ charcuteria = fopen("charcuteria.txt","r");
                     printf("\033[2J");
                 }while(deseo_operacion!=2);
             break;//finaliza aqui el case 1
-                                                                                    //PESCADERIA
+	    case 2:                                                                        //PESCADERIA
                 do
                 {
                     printf("\033[2J");
