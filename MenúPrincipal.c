@@ -105,6 +105,7 @@ charcuteria = fopen("charcuteria.txt","r");
       do
         {
         do{
+	pacumulado=0.0; //Para inicializar la cuenta total que va acumulando las compras
         ImagenMercado(); //Imagen de la disposicion de  las tiendas
         fflush(stdin);
         MenuMercado();//Añadimpos mediante funcion el menu principal del mercado
