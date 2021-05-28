@@ -109,7 +109,7 @@ printf("\033[2J");//codigo ANSI para limpiar la pantalla
         ImagenMercado(); //Ilustracion de un supermercado que muestra la disposición de  las tiendas
         fflush(stdin);
         MenuMercado();//llamada a la función que muestra menú principal del mercado
-        
+
         scanf ("%i",&eleccion_operacion);
         switch (eleccion_operacion)//switch-case para las 5 opciones que ofrece el menu principal
             {
@@ -140,7 +140,7 @@ printf("\033[2J");//codigo ANSI para limpiar la pantalla
                     }while(eleccion_productos<1 || eleccion_productos>nproductos);//bucle do-while,si la elección no corresponde a una opción valida vuelve a preguntar
 
                     printf("\033[2J");
-                    printf ("\n Usted ha elegido %s\n\n",tienda[eleccion_productos-1].tipo);//se imprime el producto seleccionado 
+                    printf ("\n Usted ha elegido %s\n\n",tienda[eleccion_productos-1].tipo);//se imprime el producto seleccionado
                     fflush(stdin);
                     printf (" Precio:%.2f euros\n\n",tienda[eleccion_productos-1].precio);//se imprime le precio del producto
                     printf (" Eliga la cantidad en unidades que desea comprar: ");
@@ -331,9 +331,9 @@ printf("\033[2J");//codigo ANSI para limpiar la pantalla
                 correcto=0;
             }while (correcto);
 
+            printf("\033[2J");
             //switch MENU MERCADO
                     do{
-                    printf("\033[2J");
                     printf ("\n Desea seguir comprando en MERCADO ETSIDI?\n\n"); //Si el usuario responde distinto a lo que se pregunta, se volvera a repetir la pregunta
                     printf (" 1.-Si\n\n");                                       //tantas veces como sea posible hasta que el usuario marce una de las opciones posibles.
                     printf (" 2.-No\n\n");
@@ -354,10 +354,16 @@ printf("\033[2J");//codigo ANSI para limpiar la pantalla
     printf("\n\n\nMuchas gracias por haber confiado en MercadoEtsidi.com, le esperamos de vuelta pronto!!!\n\n");
     delay(1.5);
     printf("\033[2J");
-    printf ("Desea salir de la pagina de MERCADO ETSIDI?\n\n");//Pregunta para salir de la pagina o seguir comprando
+    do{
+    printf ("\n\nDesea salir de la pagina de MERCADO ETSIDI?\n\n");//Pregunta para salir de la pagina o seguir comprando
     printf("1.-Si\n\n");
     printf("2.-No\n\n");
     scanf("%i",&nuevo_cliente);
+    if (nuevo_cliente!=2 && nuevo_cliente!=1)
+    {
+        printf ("Opcion incorrecta, seleccione una opcion valida");
+    }
+    }while(nuevo_cliente!=2 && nuevo_cliente!=1);
 }while(nuevo_cliente==2);
     return 0; //Finalizacion programa
 }
@@ -387,7 +393,7 @@ void ImagenMercado()
 char c;
 FILE *fd;
 printf("\033[2J");
-fd = fopen("ImagenMercadoEtsidi.txt", "r");//la imagen que muestra en pantalla corresponde a un letrero 
+fd = fopen("ImagenMercadoEtsidi.txt", "r");//la imagen que muestra en pantalla corresponde a un letrero
 if (fd == NULL)
 {
 printf("\nEl fichero no pudo ser abierto.");
@@ -426,7 +432,6 @@ int eleccion_datos;
 
 printf("Necesitamos sus datos para realizar la entrega\n\n");
     do{
-	printf("\033[2J");
         printf("Introduzca su nombre separado con guiones (-):\n\n");
         scanf("%s",datos.nombre);
         printf("Introduzca sus apellidos separados con guiones (-):\n\n");
@@ -455,10 +460,16 @@ printf("Necesitamos sus datos para realizar la entrega\n\n");
         printf("Muchas gracias: %s %s \n\n",datos.nombre,datos.apellido);
         printf("El envio se realizara a la direccion: %s\n\n",datos.direccion);
         printf("Para cualquier informacion lo llamaremos al numero: %li\n\n",datos.telefono);
-        printf("Son estos datos correctos?\n\n");
+        do{
+        printf("\nSon estos datos correctos?\n\n");
         printf("1.-Si\n\n");
         printf("2.-No\n\n");
         scanf ("%i",&eleccion_datos);
+        if (eleccion_datos != 2 && eleccion_datos !=1)
+          {
+            printf ("Opcion incorrecta, seleccione una opcion valida\n");
+          }
+        }while (eleccion_datos != 2 && eleccion_datos != 1);
         delay (1);
 	if (datos.saldo<pacumulado)
         {
